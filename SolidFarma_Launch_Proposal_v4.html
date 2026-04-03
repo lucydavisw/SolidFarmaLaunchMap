@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SolidFarma × Zarrin Productions — Launch Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;font-size:16px;line-height:1.6;color:#1a1a1a;background:#fff;overflow-x:hidden;}
+:root{
+  --slate:#445863;
+  --gold:#e5aa21;
+  --blue:#2B5FEA;
+  --blue-d:#1a4fd6;
+  --slate-d:#2e3d45;
+  --slate-l:#5c7280;
+  --gold-d:#c99312;
+  --white:#ffffff;
+  --off:#f5f7f9;
+  --gray:#dde2e6;
+}
+
+/* ─── COVER ─── */
+.cover{
+  min-height:100vh;
+  background:linear-gradient(160deg,#eef2fb 0%,#f5f7f9 50%,#fdf8ee 100%);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:80px 48px;
+  position:relative;
+  overflow:hidden;
+}
+.cover::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 80% 30%, rgba(43,95,234,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(229,170,33,0.08) 0%, transparent 55%);
+  pointer-events:none;
+}
+.cover-badge{
+  display:inline-block;
+  background:rgba(229,170,33,0.12);
+  border:1.5px solid rgba(229,170,33,0.4);
+  color:var(--gold-d);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  padding:7px 20px;
+  border-radius:100px;
+  margin-bottom:40px;
+  position:relative;
+  z-index:2;
+}
+.cover-logo{
+  position:relative;
+  z-index:2;
+  margin-bottom:52px;
+}
+.cover-logo svg{height:60px;width:auto;}
+.cover h1{
+  font-size:clamp(42px,7vw,88px);
+  font-weight:900;
+  line-height:1.0;
+  color:var(--slate-d);
+  text-transform:uppercase;
+  letter-spacing:-0.02em;
+  position:relative;
+  z-index:2;
+  margin-bottom:6px;
+}
+.cover h1 em{font-style:italic;color:var(--gold-d);}
+.cover-sub{
+  font-size:clamp(15px,2vw,22px);
+  font-weight:700;
+  color:var(--slate-l);
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  position:relative;
+  z-index:2;
+  margin-bottom:52px;
+}
+.cover-meta{
+  display:flex;
+  gap:56px;
+  justify-content:center;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:2;
+}
+.cover-meta-item{display:flex;flex-direction:column;gap:5px;align-items:center;}
+.cover-meta-item .label{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--slate-l);
+}
+.cover-meta-item .value{
+  font-size:18px;
+  font-weight:800;
+  color:var(--blue);
+  letter-spacing:0.5px;
+}
+.cover-divider{
+  width:64px;
+  height:3px;
+  background:var(--gold);
+  border-radius:2px;
+  margin:48px auto;
+  position:relative;
+  z-index:2;
+}
+.cover-byline{
+  font-size:12px;
+  font-weight:600;
+  color:var(--slate-l);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  position:relative;
+  z-index:2;
+}
+
+/* ─── SECTION GLOBALS ─── */
+.section-inner{max-width:1140px;margin:0 auto;padding:0 48px;}
+.chip{
+  display:inline-block;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gold);
+  border-bottom:2.5px solid var(--gold);
+  padding-bottom:3px;
+  margin-bottom:18px;
+}
+.chip.blue{color:var(--blue);border-color:var(--blue);}
+.section-h2{
+  font-size:clamp(26px,3.5vw,44px);
+  font-weight:900;
+  line-height:1.1;
+  color:var(--slate-d);
+  margin-bottom:16px;
+  text-transform:uppercase;
+}
+.section-h2 em{font-style:italic;color:var(--gold);}
+.section-p{
+  font-size:16px;
+  line-height:1.85;
+  color:#5a6270;
+  max-width:640px;
+  margin-bottom:12px;
+}
+
+/* ─── STATS STRIP ─── */
+.stats-strip{
+  background:var(--blue);
+  padding:40px 48px;
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  gap:0;
+}
+.stat-item{text-align:center;padding:12px 24px;}
+.stat-item .num{
+  display:block;
+  font-size:clamp(32px,4vw,48px);
+  font-weight:900;
+  color:var(--gold);
+  line-height:1;
+  text-transform:uppercase;
+}
+.stat-item .lbl{
+  display:block;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.75);
+  margin-top:6px;
+}
+
+/* ─── SITUATION ─── */
+.situation{background:var(--off);padding:88px 0;}
+.situation-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px;}
+.sit-card{
+  background:#fff;
+  border-radius:14px;
+  padding:38px 34px;
+  border:1.5px solid var(--gray);
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.sit-card:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(0,0,0,.07);border-color:rgba(229,170,33,0.4);}
+.sit-card-num{
+  font-size:52px;
+  font-weight:900;
+  color:var(--blue);
+  line-height:1;
+  margin-bottom:12px;
+}
+.sit-card h3{
+  font-size:18px;
+  font-weight:800;
+  color:var(--slate-d);
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.sit-card p{font-size:14.5px;color:#666;line-height:1.75;}
+
+/* ─── DELIVERED ─── */
+.delivered{background:#fff;padding:88px 0;}
+.delivered-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  margin-top:48px;
+}
+.del-card{
+  border-radius:14px;
+  padding:34px 28px;
+  border:1.5px solid var(--gray);
+  background:#fff;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.del-card:hover{transform:translateY(-5px);box-shadow:0 16px 44px rgba(0,0,0,.08);border-color:rgba(229,170,33,0.4);}
+.del-icon{
+  width:64px;height:64px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;margin-bottom:20px;
+}
+.del-icon.bg-blue{background:rgba(43,95,234,0.09);}
+.del-icon.bg-gold{background:rgba(229,170,33,0.12);}
+.del-icon.bg-slate{background:rgba(68,88,99,0.08);}
+.del-card h4{
+  font-size:15px;font-weight:800;color:var(--slate-d);
+  text-transform:uppercase;letter-spacing:.3px;margin-bottom:10px;
+}
+.del-card p{font-size:13.5px;color:#666;line-height:1.75;}
+.del-tag{
+  display:inline-block;
+  margin-top:14px;
+  background:rgba(43,95,234,0.08);
+  color:var(--blue);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  padding:4px 12px;
+  border-radius:100px;
+}
+.del-tag.gold{background:rgba(229,170,33,0.12);color:var(--gold-d);}
+.del-tag.slate{background:rgba(68,88,99,0.1);color:var(--slate);}
+
+/* ─── SERVICES ─── */
+.services-section{background:var(--off);padding:88px 0;}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:52px;
+}
+
+@media(max-width:900px){
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .delivered-grid{grid-template-columns:1fr 1fr;}
+  .situation-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr;}
+  .delivered-grid{grid-template-columns:1fr;}
+  .cover-meta{gap:28px;}
+}
+
+.svc-card{
+  background:#fff;
+  border-radius:14px;
+  padding:36px 30px;
+  border:1.5px solid var(--gray);
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,.09);border-color:rgba(229,170,33,0.4);}
+.svc-icon{
+  width:68px;height:68px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;margin-bottom:22px;
+}
+.bg-s{background:rgba(68,88,99,0.08);}
+.bg-g{background:rgba(229,170,33,0.10);}
+.bg-b{background:rgba(43,95,234,0.08);}
+.svc-card h4{
+  font-size:16px;font-weight:800;color:var(--slate-d);
+  text-transform:uppercase;letter-spacing:.3px;margin-bottom:10px;
+}
+.svc-card p{font-size:14px;line-height:1.75;color:#666;margin-bottom:16px;}
+.svc-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.svc-tag{
+  font-size:10px;font-weight:700;letter-spacing:.5px;
+  padding:4px 11px;border-radius:100px;
+  background:var(--off);
+  color:var(--slate);
+  border:1px solid var(--gray);
+}
+
+/* ─── TIMELINE ─── */
+.timeline-section{background:var(--off);padding:88px 0;}
+.timeline-section .section-h2{color:var(--slate-d);}
+.timeline-section .section-p{color:#5a6270;}
+.tl{margin-top:56px;position:relative;}
+.tl::before{
+  content:'';
+  position:absolute;
+  left:30px;top:0;bottom:0;
+  width:2px;
+  background:linear-gradient(to bottom, var(--blue), var(--gold));
+}
+.tl-item{display:flex;gap:36px;margin-bottom:36px;align-items:flex-start;}
+.tl-dot{
+  width:62px;height:62px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:900;letter-spacing:1px;
+  text-transform:uppercase;flex-shrink:0;position:relative;z-index:1;
+}
+.tl-dot.blue{background:var(--blue);color:#fff;}
+.tl-dot.gold{background:var(--gold);color:var(--slate-d);}
+.tl-dot.slate{background:var(--slate);color:#fff;}
+.tl-body{
+  background:#fff;
+  border:1.5px solid var(--gray);
+  border-radius:14px;
+  padding:30px 32px;
+  flex:1;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.tl-body:hover{transform:translateY(-4px);box-shadow:0 16px 44px rgba(0,0,0,.07);border-color:rgba(229,170,33,0.4);}
+.tl-month{
+  font-size:10px;font-weight:800;letter-spacing:2px;
+  text-transform:uppercase;color:var(--slate-l);
+  margin-bottom:8px;
+}
+.tl-body h3{
+  font-size:18px;font-weight:800;color:var(--slate-d);
+  text-transform:uppercase;margin-bottom:10px;
+}
+.tl-body p{font-size:13.5px;color:#666;line-height:1.75;margin-bottom:14px;}
+.tl-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.tl-pill{
+  font-size:10px;font-weight:700;padding:4px 12px;
+  border-radius:100px;letter-spacing:.5px;
+}
+.tl-pill.blue{background:rgba(43,95,234,0.08);border:1px solid rgba(43,95,234,0.2);color:var(--blue);}
+.tl-pill.gold{background:rgba(229,170,33,0.10);border:1px solid rgba(229,170,33,0.25);color:var(--gold-d);}
+.tl-pill.slate{background:rgba(68,88,99,0.07);border:1px solid rgba(68,88,99,0.15);color:var(--slate);}
+
+/* ─── WHY ZARRIN ─── */
+.why-section{background:#fff;padding:88px 0;}
+.pillars-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-top:52px;
+}
+@media(max-width:900px){.pillars-grid{grid-template-columns:1fr 1fr;}}
+.pillar-card{
+  padding:34px 28px;
+  border-radius:14px;
+  border:1.5px solid var(--gray);
+  background:var(--off);
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.pillar-card:hover{transform:translateY(-5px);box-shadow:0 16px 44px rgba(0,0,0,.07);border-color:rgba(43,95,234,0.3);}
+.pillar-num{
+  font-size:44px;font-weight:900;
+  color:var(--blue);line-height:1;margin-bottom:14px;
+}
+.pillar-card h4{
+  font-size:14px;font-weight:800;color:var(--slate-d);
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;
+}
+.pillar-card p{font-size:13px;color:#666;line-height:1.75;}
+
+/* ─── CLOSING ─── */
+.closing{
+  background:#fff;
+  border-top:3px solid var(--gold);
+  padding:96px 0;
+  text-align:center;
+}
+.closing h2{
+  font-size:clamp(28px,4vw,52px);font-weight:900;
+  color:var(--slate-d);text-transform:uppercase;line-height:1.1;
+  margin-bottom:18px;
+}
+.closing h2 em{font-style:italic;color:var(--gold-d);}
+.closing p{
+  font-size:17px;color:#5a6270;
+  max-width:540px;margin:0 auto;line-height:1.8;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--off);
+  padding:44px 48px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+  border-top:3px solid var(--gold);
+}
+.foot-brand{
+  font-size:18px;font-weight:900;color:var(--slate-d);
+  text-transform:uppercase;letter-spacing:1px;
+}
+.foot-brand span{color:var(--gold-d);}
+footer p{font-size:12px;color:var(--slate-l);letter-spacing:.5px;}
+
+/* ─── SECTION LABEL BAND ─── */
+.label-band{
+  background:var(--blue);
+  padding:14px 48px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.label-band span{
+  font-size:10px;font-weight:800;letter-spacing:2.5px;
+  text-transform:uppercase;color:rgba(255,255,255,0.9);
+}
+.label-band::before{
+  content:'';display:block;width:28px;height:2px;
+  background:var(--gold);border-radius:2px;flex-shrink:0;
+}
+
+/* ─── FULL-WIDTH HIGHLIGHT CARD ─── */
+.highlight-card{
+  background:linear-gradient(135deg,rgba(43,95,234,0.06) 0%,rgba(229,170,33,0.05) 100%);
+  border:1.5px solid rgba(43,95,234,0.15);
+  border-radius:16px;
+  padding:40px 44px;
+  margin-top:32px;
+}
+.highlight-card h3{
+  font-size:20px;font-weight:900;color:var(--slate-d);
+  text-transform:uppercase;margin-bottom:12px;
+}
+.highlight-card p{font-size:15px;color:#5a6270;line-height:1.8;}
+
+/* ─── ALSO INCLUDED ─── */
+.also-section{background:var(--off);padding:88px 0;}
+.also-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+  margin-top:48px;
+}
+@media(max-width:700px){.also-grid{grid-template-columns:1fr;}}
+.also-card{
+  background:#fff;
+  border-radius:14px;
+  padding:36px 30px;
+  border:1.5px solid var(--gray);
+  display:flex;gap:22px;align-items:flex-start;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.also-card:hover{transform:translateY(-4px);box-shadow:0 16px 44px rgba(0,0,0,.07);border-color:rgba(229,170,33,0.4);}
+.also-icon{
+  width:60px;height:60px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;flex-shrink:0;
+}
+.also-card h4{
+  font-size:15px;font-weight:800;color:var(--slate-d);
+  text-transform:uppercase;margin-bottom:8px;
+}
+.also-card p{font-size:13.5px;color:#666;line-height:1.75;}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ COVER ═══════════ -->
+<section class="cover">
+  <div class="cover-badge">Prepared Exclusively for SolidFarma</div>
+
+  <!-- SolidFarma logo (white version) -->
+  <div class="cover-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210.95 130.12">
+      <defs><style>.f1{fill:#2e3d45;opacity:.95}.f2{fill:#e5aa21}</style></defs>
+      <rect class="f1" x="78.23" y="70.99" width="3.92" height="21.4"/>
+      <path class="f2" d="M.08,73.14c1.24,25.88,20.7,51.86,50.42,56.3,21.1,3.16,33.19-5.49,38.43-10.78-2.96,2.15-6.17,3.87-9.53,5.16-5.33,2.04-11.08,3-16.92,2.89-5.49-.1-11.12-1.16-16.72-3.19-5.33-1.94-10.23-4.62-14.61-7.82-4.28-3.12-8.15-6.8-11.48-10.85-3.33-4.04-6.21-8.53-8.47-13.32-2.31-4.89-4.03-10.19-4.95-15.78-.96-5.84-.98-11.55-.12-16.94,.91-5.73,2.83-11.18,5.7-16.05,3.09-5.24,7.3-9.85,12.54-13.37,.46-.31,.92-.6,1.39-.89C10.45,36.3-1.06,49.49,.08,73.14Z"/>
+      <path class="f2" d="M74.67,4.63c-.16-.91-.53-1.72-1.07-2.41-.54-.68-1.24-1.23-2.08-1.61-.83-.38-1.79-.59-2.85-.62h-.16c-1.03,0-2.07,.18-3.05,.52-.98,.33-1.91,.81-2.76,1.41-.5,.35-.97,.75-1.4,1.18l-.08,.06-.05,.05s.02-.01.02-.02c-.26,.26-.5,.53-.73,.82-.63,.8-1.12,1.68-1.45,2.63-.33,.96-.44,1.9-.37,2.77,.07,.88,.34,1.7,.78,2.41,.44,.72,1.06,1.34,1.83,1.8,.78,.47,1.72,.79,2.78,.9h.16c1.07,.09,2.17-.03,3.23-.33,1.07-.3,2.11-.79,3.05-1.42,.21-.14,.42-.3,.62-.46l-.02,.03c.04-.03,.07-.06,.11-.09l.06-.04s.02-.02.02-.02c.63-.51,1.2-1.08,1.68-1.71,.69-.88,1.21-1.87,1.51-2.91,.31-1.05,.36-2.05,.2-2.97Z"/>
+      <path class="f1" d="M93.69,4.71l-.1-.08c-.6-.26-2.5,1.22-2.5,1.22-12.19,9.3-20.25,14.66-29.13,14.31-5.68-.22-11.03-5.47-14.03-8.71,0,0-.95-1.05-1.43-1.12l-.01-.01c-.04,0-.07,0-.1,.02-.4,.29,.1,1.44,.3,2,1.69,4.24,4.2,11.05,3.18,17.96-.84,5.67-4.89,12.05-8.56,16.84-2.55,3.33-4.92,5.89-5.9,6.92,.34,.37,.69,.75,1.03,1.12,2.68-2.13,12.21-8.91,23.43-7.44,7.93,1.03,13.93,8.08,17.72,13.44,0,0,.83,1.24,1.39,1h.01c.29-.18,.21-.77,.21-.77-.06-.49-.26-1.03-.26-1.03-2.12-6.2-4.46-15.67-3.45-25.33,.94-9.04,9.16-20.28,16.75-28.06,0,0,1.92-1.82,1.53-2.29Z"/>
+      <path class="f1" d="M18.09,88.46h10.7c3.7,0,5.22-1.34,5.22-4.06,0-6.38-15.69-6.11-15.69-15.38,0-5.08,3.66-7.85,8.56-7.85h9.94v3.92h-10.52c-2.32,0-3.79,1.29-3.79,3.7,0,5.75,15.69,5.75,15.69,15.25,0,4.99-3.12,8.34-8.65,8.34h-11.46v-3.92Z"/>
+      <path class="f1" d="M51.71,70.54c5.93,0,11.1,4.55,11.1,11.15s-5.17,11.15-11.1,11.15-11.1-4.55-11.1-11.15,5.17-11.15,11.1-11.15Zm0,18.55c4.06,0,7-3.03,7-7.4s-2.94-7.4-7-7.4-7,3.03-7,7.4,2.94,7.4,7,7.4Z"/>
+      <path class="f1" d="M67.09,92.39v-31.21h3.92v31.21h-3.92Z"/>
+      <path class="f2" d="M80.2,63.85c1.52,0,2.36,1.16,2.36,2.36s-.85,2.36-2.36,2.36-2.36-1.16-2.36-2.36,.85-2.36,2.36-2.36Z"/>
+      <g>
+        <path class="f2" d="M139.88,92.78v-10.57c0-4.9-3.52-9.41-8.6-9.41-4.28,0-8.52,3.97-8.52,9.41s4.23,9.41,8.52,9.41c2.81,0,4.77-1.16,6.6-3.08v2.01c-1.29,1.07-3.34,2.67-6.6,2.67-5.75,0-10.3-4.64-10.3-11.01s4.55-11.01,10.3-11.01,10.3,4.64,10.3,11.01v10.57h-1.69Z"/>
+        <path class="f2" d="M146.92,92.78v-21.13h1.7v4.06h.09c.98-2.14,3.48-4.06,6.24-4.06h1.96v1.61h-1.78c-3.3,0-6.51,3.48-6.51,8.47v11.06h-1.7Z"/>
+        <path class="f2" d="M171.89,92.78v-14c0-4.01-2.72-5.98-5.48-5.98s-5.49,1.96-5.49,5.98v14h-1.69v-14c0-4.9,3.21-7.58,7.18-7.58,3.34,0,5.39,1.52,6.29,4.15h.09c.89-2.63,2.94-4.15,6.29-4.15,3.97,0,7.18,2.68,7.18,7.58v14h-1.69v-14c0-4.01-2.76-5.98-5.49-5.98s-5.48,1.96-5.48,5.98v14h-1.69Z"/>
+        <path class="f2" d="M209.25,92.78v-10.57c0-4.9-3.52-9.41-8.6-9.41-4.28,0-8.52,3.97-8.52,9.41s4.24,9.41,8.52,9.41c2.81,0,4.77-1.16,6.6-3.08v2.01c-1.29,1.07-3.34,2.67-6.6,2.67-5.75,0-10.3-4.64-10.3-11.01s4.55-11.01,10.3-11.01,10.3,4.64,10.3,11.01v10.57h-1.69Z"/>
+      </g>
+      <path class="f1" d="M116.04,57.24h4.57v-3.28h-6.75c-7.95,.42-8.36,6.85-8.38,7.21h0v19.17c0,5.88-3.12,8.74-6.87,8.74-4.19,0-7.13-3.08-7.13-7.45s2.81-7.36,7.04-7.36c1.78,0,3.97,.89,5.39,1.87v-4.1c-1.87-1.07-3.92-1.52-6.06-1.52-5.48,0-10.3,4.64-10.3,10.61,0,6.33,4.1,11.68,11.06,11.68,6.29,0,10.79-4.73,10.79-11.77v-10h11.16v-1.61h-11.16v-8.13c.71-4.93,6.64-4.09,6.64-4.09Z"/>
+    </svg>
+  </div>
+
+  <h1>Your Complete<br><em>US Launch</em><br>Partner</h1>
+  <p class="cover-sub">A Full Pre-Launch Proposal from Zarrin Productions</p>
+
+  <div class="cover-divider"></div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <span class="label">Launch Target</span>
+      <span class="value">June 2026</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="label">Video Library</span>
+      <span class="value">288 Videos</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="label">Service Tracks</span>
+      <span class="value">6 at Once</span>
+    </div>
+    <div class="cover-meta-item">
+      <span class="label">Contact</span>
+      <span class="value">One Person</span>
+    </div>
+  </div>
+
+  <div class="cover-divider"></div>
+  <p class="cover-byline">Prepared by Zarrin Productions &nbsp;&bull;&nbsp; April 2026</p>
+</section>
+
+<!-- ═══════════ STATS STRIP ═══════════ -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <span class="num">288</span>
+    <span class="lbl">Videos Ready to Produce</span>
+  </div>
+  <div class="stat-item">
+    <span class="num">6</span>
+    <span class="lbl">Service Tracks Running in Parallel</span>
+  </div>
+  <div class="stat-item">
+    <span class="num">1</span>
+    <span class="lbl">Point of Contact. No Coordination Chaos.</span>
+  </div>
+  <div class="stat-item">
+    <span class="num">June</span>
+    <span class="lbl">Official US Launch Month</span>
+  </div>
+</div>
+
+<!-- ═══════════ THE SITUATION ═══════════ -->
+<div class="label-band"><span>The Opportunity</span></div>
+<section class="situation">
+  <div class="section-inner">
+    <span class="chip">Why This Matters Now</span>
+    <h2 class="section-h2">You Are Launching Into One of<br>the Most Competitive Markets<br><em>on Earth.</em></h2>
+    <p class="section-p">
+      The US nutraceutical market rewards brands that show up everywhere at once. A strong product means nothing without the infrastructure to back it up. Right now, SolidFarma has no website, no social presence, no video library, and no marketing engine. We can build all of it in parallel so that by June, you are not just launching. You are arriving fully ready.
+    </p>
+    <div class="situation-grid">
+      <div class="sit-card">
+        <div class="sit-card-num">$50B+</div>
+        <h3>US Nutraceutical Market Size</h3>
+        <p>A market that rewards visibility, credibility, and consistent content. The brands that dominate are the ones that were ready before their competitors even noticed them.</p>
+      </div>
+      <div class="sit-card">
+        <div class="sit-card-num">Day 1</div>
+        <h3>First Mover Advantage Is Real</h3>
+        <p>Every week you launch without a full digital footprint is a week of compounding disadvantage. We start everything now so the momentum is already built by the time you flip the switch in June.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHAT WE DELIVERED ═══════════ -->
+<div class="label-band"><span>What We Delivered Today</span></div>
+<section class="delivered">
+  <div class="section-inner">
+    <span class="chip">Delivered With This Proposal</span>
+    <h2 class="section-h2">You Asked for 4 Edited Videos.<br><em>We Came Back with More.</em></h2>
+    <p class="section-p">
+      This is what a full engagement with Zarrin looks like in practice. Before a single contract is signed, here is everything included with today's delivery.
+    </p>
+
+    <div class="delivered-grid">
+
+      <div class="del-card">
+        <div class="del-icon bg-blue">🎬</div>
+        <h4>4 Edited Videos &mdash; Style A</h4>
+        <p>Your original 4 videos professionally edited and ready for upload on your app platform.</p>
+        <span class="del-tag">Core Deliverable</span>
+      </div>
+
+      <div class="del-card">
+        <div class="del-icon bg-gold">✂️</div>
+        <h4>4 Bonus Videos &mdash; Style B</h4>
+        <p>The same footage reedited in a distinct visual style so you can compare the range we bring. You do not have to commit to one look across your entire library.</p>
+        <span class="del-tag gold">Additional Editing Style</span>
+      </div>
+
+      <div class="del-card">
+        <div class="del-icon bg-slate">🎨</div>
+        <h4>1 Bonus Video &mdash; Style C</h4>
+        <p>A third creative direction to demonstrate that we can match editing tone to campaign type, platform, and target audience without starting over each time.</p>
+        <span class="del-tag slate">Additional Editing Style</span>
+      </div>
+
+      <div class="del-card">
+        <div class="del-icon bg-blue">📱</div>
+        <h4>4 Meta Ad Videos</h4>
+        <p>Compliant, conversion-focused Meta ad creatives produced for MyoSynex using life-stage compliant language. Ready to run the day your ad account goes live.</p>
+        <span class="del-tag">Meta Compliant</span>
+      </div>
+
+      <div class="del-card">
+        <div class="del-icon bg-gold">🌐</div>
+        <h4>Mock Website</h4>
+        <p>A fully designed mockup of what your SolidFarma website could look like, built to launch-ready standards using your brand system and product information.</p>
+        <span class="del-tag gold">Bonus. No Extra Charge.</span>
+      </div>
+
+      <div class="del-card">
+        <div class="del-icon bg-slate">🧠</div>
+        <h4>Content Strategy Guide</h4>
+        <p>A structured social media content strategy document outlining how to build and grow SolidFarma's presence across platforms, covering content pillars, posting cadence, and audience targeting from day one.</p>
+        <span class="del-tag slate">Bonus. No Extra Charge.</span>
+      </div>
+
+      <div class="del-card">
+        <div class="del-icon bg-blue">📸</div>
+        <h4>10 Product Images</h4>
+        <p>A set of 10 product photos designed to kick off your Facebook page. Professionally composed and ready for your first wave of posts across social platforms.</p>
+        <span class="del-tag">Facebook Page Ready</span>
+      </div>
+
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ FULL SERVICES ═══════════ -->
+<div class="label-band"><span>Full Service Scope</span></div>
+<section class="services-section">
+  <div class="section-inner">
+    <span class="chip">Everything Running at Once</span>
+    <h2 class="section-h2">Every Track You Need Before<br><em>June. All in Parallel.</em></h2>
+    <p class="section-p">
+      Rather than building one thing per month and arriving at your launch date only halfway ready, we operate every track simultaneously with one coordinated team. Here is the complete scope, service by service.
+    </p>
+
+    <div class="services-grid">
+
+      <!-- App Video Production -->
+      <div class="svc-card">
+        <div class="svc-icon bg-b">🎬</div>
+        <h4>App Video Production &mdash; 288 Videos</h4>
+        <p>All 288 videos professionally edited to a consistent, high-quality standard and ready to be uploaded directly to your app platform. Multiple editing styles available so the look evolves across your content library without repetition.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">288 Videos</span>
+          <span class="svc-tag">App-Ready Format</span>
+          <span class="svc-tag">Multiple Editing Styles</span>
+          <span class="svc-tag">Consistent Quality</span>
+          <span class="svc-tag">Fast Turnaround</span>
+        </div>
+      </div>
+
+      <!-- Social Media Video Production -->
+      <div class="svc-card">
+        <div class="svc-icon bg-b">📲</div>
+        <h4>Social Media Video Production</h4>
+        <p>Short-form and platform-specific video content produced and optimized for every major social media channel. Built to stop the scroll, hold attention, and drive action.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Instagram Reels</span>
+          <span class="svc-tag">TikTok Videos</span>
+          <span class="svc-tag">YouTube Shorts</span>
+          <span class="svc-tag">Facebook Reels</span>
+          <span class="svc-tag">Social Media Posts</span>
+          <span class="svc-tag">Podcasts</span>
+          <span class="svc-tag">Static Video Ads</span>
+          <span class="svc-tag">Banners</span>
+        </div>
+      </div>
+
+      <!-- Marketing Automations -->
+      <div class="svc-card">
+        <div class="svc-icon bg-g">⚙️</div>
+        <h4>Marketing Automations</h4>
+        <p>Your entire backend marketing engine built and live. Every lead that comes in gets nurtured automatically from the first touchpoint without any manual follow-up required.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Workflows</span>
+          <span class="svc-tag">AI Chatbots</span>
+          <span class="svc-tag">Custom Snapshots</span>
+          <span class="svc-tag">Zapier Integrations</span>
+          <span class="svc-tag">Courses &amp; Memberships</span>
+          <span class="svc-tag">Funnel Building</span>
+          <span class="svc-tag">CRM Management</span>
+          <span class="svc-tag">Email Newsletters</span>
+          <span class="svc-tag">Database Reactivation</span>
+        </div>
+      </div>
+
+      <!-- Custom GHL Snapshots -->
+      <div class="svc-card">
+        <div class="svc-icon bg-s">🔧</div>
+        <h4>Custom GHL Snapshots</h4>
+        <p>Bespoke GoHighLevel snapshots built specifically for SolidFarma. No cookie-cutter templates. Every feature customized for your customer journey and business model.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">AI Chatbots</span>
+          <span class="svc-tag">Conversation AI</span>
+          <span class="svc-tag">WhatsApp Integration</span>
+          <span class="svc-tag">Automated Onboarding</span>
+          <span class="svc-tag">Lead Gen Funnels</span>
+          <span class="svc-tag">eCommerce Stores</span>
+          <span class="svc-tag">Lead Scoring</span>
+          <span class="svc-tag">Appointment Reminders</span>
+          <span class="svc-tag">Long Term Nurture</span>
+          <span class="svc-tag">Birthday Campaigns</span>
+          <span class="svc-tag">Database Reactivation</span>
+          <span class="svc-tag">Customized Branding</span>
+          <span class="svc-tag">Proposals &amp; Estimates</span>
+        </div>
+      </div>
+
+      <!-- Media Buying -->
+      <div class="svc-card">
+        <div class="svc-icon bg-b">📡</div>
+        <h4>Media Buying</h4>
+        <p>Ad accounts set up, campaigns built from scratch, pixels firing correctly, and creatives running on the platforms where your customers actually are. Full reporting included.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Facebook Ads</span>
+          <span class="svc-tag">Instagram Ads</span>
+          <span class="svc-tag">TikTok Ads</span>
+          <span class="svc-tag">Google Ads</span>
+          <span class="svc-tag">YouTube Ads</span>
+          <span class="svc-tag">Campaign Building</span>
+          <span class="svc-tag">Ad Optimization</span>
+          <span class="svc-tag">Conversion Tracking</span>
+          <span class="svc-tag">Pixel Setup</span>
+          <span class="svc-tag">Ads Research</span>
+          <span class="svc-tag">Ad Copy</span>
+          <span class="svc-tag">Campaign Reporting</span>
+        </div>
+      </div>
+
+      <!-- Website Building -->
+      <div class="svc-card">
+        <div class="svc-icon bg-g">🌐</div>
+        <h4>Website Building</h4>
+        <p>A fully designed, speed-optimized, and conversion-ready website built on the platform that fits your business. Every page live and tested before your launch date.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">WordPress</span>
+          <span class="svc-tag">Shopify</span>
+          <span class="svc-tag">GHL</span>
+          <span class="svc-tag">Wix</span>
+          <span class="svc-tag">Kajabi</span>
+          <span class="svc-tag">Webflow</span>
+          <span class="svc-tag">Website Theme Setup</span>
+          <span class="svc-tag">Product Uploading</span>
+          <span class="svc-tag">Landing Page Optimization</span>
+          <span class="svc-tag">Domain Configuration</span>
+          <span class="svc-tag">Server Setup</span>
+          <span class="svc-tag">App Integration</span>
+          <span class="svc-tag">Plugin Installation</span>
+        </div>
+      </div>
+
+      <!-- SEO -->
+      <div class="svc-card">
+        <div class="svc-icon bg-s">🔍</div>
+        <h4>SEO</h4>
+        <p>Keyword research, on-page optimization, link building, and Google Business setup so your brand is findable from launch day and builds lasting organic authority over time.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Keywords Research</span>
+          <span class="svc-tag">On Page SEO</span>
+          <span class="svc-tag">Off Page SEO</span>
+          <span class="svc-tag">Link Building</span>
+          <span class="svc-tag">Citations</span>
+          <span class="svc-tag">Blog Posting</span>
+          <span class="svc-tag">Google My Business</span>
+          <span class="svc-tag">GMB Optimization</span>
+          <span class="svc-tag">Blog Writing</span>
+        </div>
+      </div>
+
+      <!-- Social Media Management -->
+      <div class="svc-card">
+        <div class="svc-icon bg-b">📲</div>
+        <h4>Social Media Management</h4>
+        <p>Consistent, branded posting across all platforms. Weekly and monthly content calendars planned in advance. Your audience grows while you focus on operations and fulfillment.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">Posts Designing</span>
+          <span class="svc-tag">Platform Posting</span>
+          <span class="svc-tag">Weekly Content Calendars</span>
+          <span class="svc-tag">Monthly Content Calendars</span>
+          <span class="svc-tag">Stories Posting</span>
+        </div>
+      </div>
+
+      <!-- Cold Prospecting -->
+      <div class="svc-card">
+        <div class="svc-icon bg-g">📨</div>
+        <h4>Cold Prospecting</h4>
+        <p>Targeted outreach to health food stores, supplement retailers, pharmacy chains, wellness distributors, and gym networks through cold email and LinkedIn automation. Your stockist and partner pipeline builds in parallel with your brand launch.</p>
+        <div class="svc-tags">
+          <span class="svc-tag">G Suite Warmup</span>
+          <span class="svc-tag">Cold Email Software Setup</span>
+          <span class="svc-tag">Leads Scraping</span>
+          <span class="svc-tag">List Cleaning</span>
+          <span class="svc-tag">Cold Email Writing</span>
+          <span class="svc-tag">Follow Up Sequences</span>
+          <span class="svc-tag">Response Management</span>
+          <span class="svc-tag">Reporting &amp; Tracking</span>
+          <span class="svc-tag">LinkedIn Search Filters</span>
+          <span class="svc-tag">LinkedIn Outreach Automation</span>
+          <span class="svc-tag">Connection Sending</span>
+          <span class="svc-tag">CRM Integration</span>
+          <span class="svc-tag">Slack Notifications</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ALSO INCLUDED ═══════════ -->
+<div class="label-band"><span>Additional Deliverables Included</span></div>
+<section class="also-section">
+  <div class="section-inner">
+    <span class="chip blue">Included in the Engagement</span>
+    <h2 class="section-h2">One More Thing<br><em>We Are Bringing to the Table.</em></h2>
+    <p class="section-p">
+      On top of every service track listed above, this deliverable is included as part of your launch package to help SolidFarma arrive on social media with a presence that already looks established.
+    </p>
+
+    <div class="also-grid">
+
+      <div class="also-card">
+        <div class="also-icon bg-b">📸</div>
+        <div>
+          <h4>10 Product Images for Facebook</h4>
+          <p>A set of 10 professionally composed product photos created specifically to launch your Facebook page. Rather than starting with an empty grid, you open with a full, polished visual identity that signals you are a serious brand on day one. All images are formatted to Facebook and Instagram specifications and ready to post immediately.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ROADMAP ═══════════ -->
+<div class="label-band"><span>The Pre-Launch Roadmap</span></div>
+<section class="timeline-section">
+  <div class="section-inner">
+    <span class="chip" style="color:var(--gold-d);border-color:var(--gold);">April Through June 2026</span>
+    <h2 class="section-h2">Everything Built.<br>Everything Live.<br><em>Nothing Rushed.</em></h2>
+    <p class="section-p">
+      This is what a full pre-launch build looks like when every track runs at the same time with one team managing all of it. Three months. Every service. One launch.
+    </p>
+
+    <div class="tl">
+
+      <div class="tl-item">
+        <div class="tl-dot blue">APR</div>
+        <div class="tl-body">
+          <div class="tl-month">April 2026 &mdash; Foundation Month</div>
+          <h3>Build the Infrastructure</h3>
+          <p>We set up everything that everything else depends on. Website architecture, CRM backbone, ad accounts, automation framework, and the video production pipeline all initiated simultaneously in week one.</p>
+          <div class="tl-pills">
+            <span class="tl-pill blue">Website design begins</span>
+            <span class="tl-pill blue">CRM and automation setup</span>
+            <span class="tl-pill blue">Ad accounts and pixels configured</span>
+            <span class="tl-pill blue">Video pipeline launched</span>
+            <span class="tl-pill gold">Social profiles created and branded</span>
+            <span class="tl-pill gold">SEO keyword strategy locked</span>
+            <span class="tl-pill slate">Cold outreach sequences written</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot gold">MAY</div>
+        <div class="tl-body">
+          <div class="tl-month">May 2026 &mdash; Populate and Test</div>
+          <h3>Content Live. Ads Running. Systems Tested.</h3>
+          <p>Every channel starts publishing. Ad campaigns go live with test budgets. The first major batch of video content rolls out across platforms. Email automations tested end to end.</p>
+          <div class="tl-pills">
+            <span class="tl-pill gold">Website live with full product pages</span>
+            <span class="tl-pill gold">First batch of app videos delivered</span>
+            <span class="tl-pill blue">Meta and TikTok campaigns launched</span>
+            <span class="tl-pill blue">Email automations live and tested</span>
+            <span class="tl-pill gold">Social calendar executing on schedule</span>
+            <span class="tl-pill slate">Cold outreach sequences active</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot slate">JUN</div>
+        <div class="tl-body">
+          <div class="tl-month">June 2026 &mdash; Official Launch</div>
+          <h3>You Arrive Ready. Not Scrambling.</h3>
+          <p>Official launch month and every system is already warmed up, tested, and delivering results. You do not flip a switch and hope. You scale what is already working.</p>
+          <div class="tl-pills">
+            <span class="tl-pill gold">Full 288 video library deployed</span>
+            <span class="tl-pill blue">Ad campaigns scaled from real data</span>
+            <span class="tl-pill blue">SEO driving organic traffic from day one</span>
+            <span class="tl-pill gold">Automations converting leads on autopilot</span>
+            <span class="tl-pill slate">Brand fully established across all channels</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHY ZARRIN ═══════════ -->
+<div class="label-band"><span>Why Zarrin Productions</span></div>
+<section class="why-section">
+  <div class="section-inner">
+    <span class="chip">One Team. One Contact.</span>
+    <h2 class="section-h2">No Coordination Headache.<br>No Quality Lost in<br><em>Translation.</em></h2>
+    <p class="section-p">
+      Most brands launching from scratch hire separate freelancers for video, a separate agency for ads, a separate developer for the website. Every handoff costs time and quality. We handle all of it, coordinated by one person, from one place.
+    </p>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-num">01</div>
+        <h4>Your Complete Marketing Stack</h4>
+        <p>Website, video, paid media, automations, SEO, social media, and outbound. We cover everything a brand needs to launch and grow, all coordinated from one place with one team.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">02</div>
+        <h4>Psychology of Attention</h4>
+        <p>Every piece of content we produce is engineered around how attention actually works. Pattern interrupts, emotional pacing, and behavioral triggers built into every edit.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">03</div>
+        <h4>Meta Compliance Built In</h4>
+        <p>We already know nutraceutical advertising rules. Every ad we produce is compliant from the first draft. No rejected ads. No wasted spend. No delays at launch.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">04</div>
+        <h4>One Dedicated Contact</h4>
+        <p>You communicate with one person. Every deliverable, every revision, every update. The internal team is managed on our side so you never feel the friction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CLOSING ═══════════ -->
+<section class="closing">
+  <div class="section-inner">
+    <h2>Let Us Build Your<br><em>Launch Together.</em></h2>
+    <p>
+      You have seen what we delivered today without being asked. Imagine what we build when we are fully focused on your June 2026 launch. Every track running, every channel live, every system working before you open the doors.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="foot-brand">Zarrin <span>Productions</span></div>
+  <p>Prepared for SolidFarma &nbsp;&bull;&nbsp; April 2026</p>
+  <p>Performance video built around the psychology of attention.</p>
+</footer>
+
+</body>
+</html>
